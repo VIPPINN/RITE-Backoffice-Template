@@ -1,0 +1,547 @@
+<script src="http://127.0.0.1:8000/backend/js/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var currentUrl = "http://127.0.0.1:8000/acceso-empresas/login";
+
+        var segments = currentUrl.split('/');
+
+        if (segments.length === 3) {
+            console.log('no definido')
+            var nav = $('#inicio');
+            nav.addClass("menu-titulo-programa");
+            nav.addClass("nav-rite");
+            nav.children('a').css("border-bottom", "4px solid #37BBED");
+            nav.removeClass("hover-navlinks");
+        } else {
+            switch (segments[3]) {
+                case 'about':
+                    var nav = $('#inicio');
+                    nav.addClass("menu-titulo-programa");
+                    nav.addClass("nav-rite");
+                    nav.children('a').css("border-bottom", "4px solid #37BBED");
+                    nav.removeClass("hover-navlinks");
+                    break;
+                case 'empresas':
+                    var nav = $('#empresas');
+                    nav.addClass("menu-titulo-programa");
+                    nav.addClass("nav-rite");
+                    nav.children('a').css("border-bottom", "4px solid #37BBED");;
+                    nav.removeClass("hover-navlinks");
+                    break;
+                case 'novedades':
+                    var nav = $('#novedades');
+                    nav.addClass("menu-titulo-programa");
+                    nav.addClass("nav-rite");
+                    nav.children('a').css("border-bottom", "4px solid #37BBED");
+                    nav.removeClass("hover-navlinks");
+                    break;
+                case 'herramientas':
+                    var nav = $('#herramientas');
+                    nav.addClass("menu-titulo-programa");
+                    nav.addClass("nav-rite");
+                    nav.children('a').css("border-bottom", "4px solid #37BBED");
+                    nav.removeClass("hover-navlinks");
+                    break;
+                    /*    case 'acceso':
+                           var nav = $('#simulacion');
+                           nav.addClass("menu-titulo-programa");
+                           nav.addClass("nav-rite");
+                           nav.children('a').css("border-bottom", "6px solid red");
+                           nav.children('a').css("border-bottom-left-radius", "4px");
+                           nav.children('a').css("border-bottom-right-radius", "4px");
+                           nav.removeClass("hover-navlinks");
+                           break;
+                       case 'simulacion':
+                           var nav = $('#simulacion');
+                           nav.addClass("menu-titulo-programa");
+                           nav.addClass("nav-rite");
+                           nav.children('a').css("border-bottom", "6px solid red");
+                           nav.children('a').css("border-bottom-left-radius", "4px");
+                           nav.children('a').css("border-bottom-right-radius", "4px");
+                           nav.removeClass("hover-navlinks");
+                           break;
+                       case 'acceso-empresas':
+                           var nav = $('#acceso-empresas');
+                           nav.addClass("menu-titulo-programa");
+                           nav.addClass("nav-rite");
+                           nav.children('a').css("border-bottom", "6px solid red");
+                           nav.children('a').css("border-bottom-left-radius", "4px");
+                           nav.children('a').css("border-bottom-right-radius", "4px");
+                           nav.removeClass("hover-navlinks");
+                           break; */
+
+
+            }
+
+        }
+    });
+</script>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("ojo-input");
+    var y = document.getElementById("password");
+    if (y.type === "password") {
+      y.type = "text";
+      x.style.backgroundImage = "url(http://127.0.0.1:8000/images/ojo-abierto.svg)";
+
+    } else {
+      y.type = "password";
+      x.style.backgroundImage = "url(http://127.0.0.1:8000/images/ojo-cerrado.svg)";
+
+    }
+  }
+</script>
+<style>
+  /*Estilo login*/
+  .ojo-cerrado {
+    position: absolute;
+    background-image: url("http://127.0.0.1:8000/images/ojo-cerrado.svg");
+    background-position: center;
+    top: 10;
+    right: 0;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+  }
+
+  .password {
+    position: relative;
+  }
+
+  /*Deshabilito las flechas del input number*/ 
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  /*fin Deshabilito las flechas del input number*/ 
+</style>
+
+<script src="http://127.0.0.1:8000/js/bootstrap.bundle.min.js"></script>
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="KrFE4K6bOCNZzqJuNqNznvuNkBXteJYfDLBgEKaP">
+
+    <title>RITE - Oficina Anticorrupción</title>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1:8000/js/app.js" defer></script>
+
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/bootstrap.min.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/font-awesome.min.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/style-rite.css>
+
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/app2.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/inicio.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/about.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/novedades.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/novedades-show.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/presentacion-terceros.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/visualiza-empresa.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/caja-herramientas.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/acceso.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/card-component.css>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="http://127.0.0.1:8000/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8000/js/sweetalert2.all.min.js"></script>
+
+    <!-- Styles -->
+    <link href="http://127.0.0.1:8000/css/app.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Encode Sans' !important;
+            font-style: normal !important;
+        }
+    </style>
+    <!-- Scripts -->
+    <script src="http://127.0.0.1:8000/js/app.js" defer></script>
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script type='text/javascript' src='js/dynamicpage.js'></script>
+
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/bootstrap.min.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/font-awesome.min.css>
+    <link rel="stylesheet" href=http://127.0.0.1:8000/css/style-rite.css>
+
+    <script src="http://127.0.0.1:8000/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8000/js/sweetalert2.all.min.js"></script>
+
+    <!-- Styles -->
+    <link href="http://127.0.0.1:8000/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="seccion-cabecera-linea01 fixed-top home-nav-color">
+
+        
+        <div class="container-fluid row cabecera-principal-contenedor">
+            <div class="cabecera-principal-elemento-logo">
+                <a href="/">
+                    <span style="display: inline-block">
+                        <img src="http://127.0.0.1:8000/images/logo-rite.svg" class="cabecera-principal-elemento-logo-escudo"
+                            alt="logo" height="45" style="margin-bottom: 1rem;">
+                    </span>
+                </a>
+            </div>
+            
+            
+            </span>
+            <span style="display: inline-block">
+                <div class="header-nav-responsive">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color: #50535C">
+                            <img src="http://127.0.0.1:8000/images/cerrar-menu.png" alt="x">
+                        </a>
+                        <a class="menu-movil-titulo">Menú</a>
+                        <a href="/">Inicio</a>
+<a href="http://127.0.0.1:8000/about">¿Qué es RITE?</a>
+<a href="http://127.0.0.1:8000/herramientas">Caja de Herramientas</a>
+<a href="http://127.0.0.1:8000/acceso">Acceso</a>
+<a class="menu-movil-activo" href="http://127.0.0.1:8000/acceso-empresas">Empresas Pioneras</a>
+<a href="http://127.0.0.1:8000/novedades">Novedades</a>
+                    </div>
+                    <button class="header-navbar-toggler">
+                        <a href="#" style="text-decoration: none; color: white;" onclick="openNav()">
+                            <i class="fa fa-bars" style="font-size:26px"></i>
+                        </a>
+                    </button>
+                </div>
+            </span>
+            
+        </div>
+        
+    </section>
+
+        
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark home-nav-second">
+        <div class="container-no-margin header-container-width">
+            <div class=" header-container-width">
+                <ul class="navbar-nav flex-row mb-md-1 mt-md-0 mb-3 mt-2">
+                    <li class="nav-item">
+                        <div class="hover-navlinks" id="inicio">
+                            <a class="nav-link  pr-3 home-text-title" href="/" style="">EL RITE</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                                                    <div class="menu-titulo-programa" id="acceso-empresas">
+                                                    <a class="nav-link  pr-3 home-text-title" href="http://127.0.0.1:8000/acceso-empresas">Acceso</a>
+            </div>
+            </li>
+
+            <li class="nav-item">
+                <div class="hover-navlinks" id="empresas">
+                    <a class="nav-link  pr-3 home-text-title" href="http://127.0.0.1:8000/empresas">Entidades
+                        Registradas</a>
+                </div>
+            </li>
+
+       
+            <li class="nav-item">
+                <div class="hover-navlinks" id="herramientas">
+                    <a class="nav-link  pr-3 home-text-title" href="http://127.0.0.1:8000/herramientas">Caja de
+                        Herramientas</a>
+                </div>
+            </li>
+
+        
+
+       
+
+            <li class="nav-item">
+                <div class="hover-navlinks" id="novedades">
+                    <a class="nav-link  pr-3 home-text-title" href="http://127.0.0.1:8000/novedades">Novedades</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <div class="hover-navlinks" id="novedades">
+                    <a class="nav-link  pr-3 home-text-title" href="http://127.0.0.1:8000/novedades">Comunidad</a>
+                </div>
+            </li>
+            </ul>
+
+        </div>
+        </div>
+    </nav>
+    
+
+    <div class="pantalla-minima">
+  <div class="modal-pantalla-minima">
+    <h2 class="texto-pantalla-minima">Ventana muy pequeña</h2>
+    <p>Para acceder a esta funcion, necesita visualizar esta ventana en un dispositivo con mayor resolución.</p>
+    <img src="../../../../images/monitor.svg" alt="" class="monitor">
+  </div>
+</div>
+<section class="acceso-section acceso-login">
+
+  <div class="container programa-container-principal" style="width: 526px;height: 550px;">
+    <div class="container row" style="padding-left: 0px;padding-right: 0px;margin-left: 0px;margin-right: 0px;">
+
+      <form id="formClasificacion" action="http://127.0.0.1:8000/acceso-empresas/authenticate" method="POST" style="padding-left: 0px;padding-right:0">
+        <input type="hidden" name="_token" value="KrFE4K6bOCNZzqJuNqNznvuNkBXteJYfDLBgEKaP">
+
+        <div class="col-sm-12" >
+          <h2 class="programa-titulo-principal iniciar-sesion text-center">Iniciar Sesión</h2>
+        </div>
+        <div class="col-sm-12">
+          <h6 class="sub-inicio-sesion">Ingrese a su cuenta para poder acceder a la plataforma</h6>
+                  </div>
+        <div class="col-sm-12" style="margin-top: 24px;padding-left: 0px;padding-right: 0px;">
+          <label class="clasificacion-titulo-input-actividad" style="margin-bottom: 4px;">CUIT</label>
+          <input type="number" value="" id="CUIT" name="CUIT" class="form-control home-contact-back-input" placeholder="Ingrese CUIT...">
+                  </div>
+
+
+        <div class="col-sm-12" style="margin-top: 24px;padding-left: 0px;padding-right: 0px;">
+          <label class="clasificacion-titulo-input-actividad" style="margin-bottom: 4px;">Contraseña</label>
+          <div class="password">
+            <input type="password" value="" id="password" name="password" class="form-control home-contact-back-input" placeholder="Ingrese Contraseña...">
+
+            <input type="button" class="ojo-cerrado" id="ojo-input" onclick="myFunction()"><img src="" alt="" class="ojo-imagen"></input>
+          </div>
+                  </div>
+
+        <div class="col-sm-12" style="text-align:right;">
+
+          <a href="http://127.0.0.1:8000/password/reset"  >Olvidé la contraseña</a>
+
+        </div>
+        <div class="col-sm-12 text-center" style="margin-top: 50px;">
+
+          <button type="submit" class="btn-registrar btn-ancho-total">Ingresar</button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+    <section style="background-color: #50535C;">
+        <nav class="navbar navbar-expand-md footer-color">
+            <div class="container-fluid">
+                <div class="container footer-container-width">
+
+                    <div class="row" style="width: 100%;">
+
+                        <div class="column" style="padding-top: 60px;">
+
+                            <div class="row footer-contact-zone">
+                                <div class="col-md-12 col-xl-6" style="padding-left: 0">
+                                    <table>
+                                        <tr>
+
+                                            <!-- <td><p style="float: left;"><img src="http://127.0.0.1:8000/images/icon-mail.png" /></p></td>
+                      <td><p><span class="footer-p-txt"><button class="redirContacto" onclick="llevarAContacto()">rite@anticorrupcion.gob.ar</button></span></p></td> -->
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p style="float: left; height: 2.4rem"><a
+                                                        href="https://goo.gl/maps/zhtrubWyvXhjGKd1A"
+                                                        target="_blank"><img src="http://127.0.0.1:8000/images/icon-pin.png"
+                                                            alt="logo" height="12"></p>
+                                            </td>
+                                            <td>
+                                                <p><span class="footer-p-txt-address">25 de Mayo 544, <br />Ciudad
+                                                        Autónoma de Buenos Aires, República
+                                                        Argentina<br />C1002ABL</span></p></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-12 col-xl-6" style="padding-left: 0">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="flex-container ">
+                                                    <div class="footer-title-social-network-div"> <span
+                                                            class="footer-title-social-network">Nuestras redes</span>
+                                                    </div>
+                                                    <div class="flex-container ">
+                                                        <div>
+                                                            <a href="http://www.facebook.com/OficinaAnticorrupcion"
+                                                                class="footer-map-link-mobile"><img
+                                                                    src="http://127.0.0.1:8000/images/icon-facebook.png"
+                                                                    alt="logo" height="24"></a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="https://twitter.com/oa_argentina"
+                                                                class="footer-map-link-mobile"><img
+                                                                    src="http://127.0.0.1:8000/images/icon-twitter.png"
+                                                                    alt="logo" height="24"></a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="http://www.instagram.com/oficinaanticorrupcion"
+                                                                class="footer-map-link-mobile"><img
+                                                                    src="http://127.0.0.1:8000/images/icon-instagram.png"
+                                                                    alt="logo" height="24"></a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="http://www.linkedin.com/company/oficina-anticorrupcion"
+                                                                class="footer-map-link-mobile"><img
+                                                                    src="http://127.0.0.1:8000/images/icon-linkedin.png"
+                                                                    alt="logo" height="24"></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p id="p_redes_header"
+                                                    style="float: left; line-height: 2rem;padding-top: 11px;">
+                                                    <a href="http://www.facebook.com/OficinaAnticorrupcion"
+                                                        class="footer-map-link"><img
+                                                            src="http://127.0.0.1:8000/images/icon-facebook.png"
+                                                            alt="logo" height="24"
+                                                            style="padding-right: 1rem;"></a>
+                                                    <a href="https://twitter.com/oa_argentina"
+                                                        class="footer-map-link"><img
+                                                            src="http://127.0.0.1:8000/images/icon-twitter.png"
+                                                            alt="logo" height="24"
+                                                            style="padding-right: 1rem;"></a>
+                                                    <a href="http://www.instagram.com/oficinaanticorrupcion"
+                                                        class="footer-map-link"><img
+                                                            src="http://127.0.0.1:8000/images/icon-instagram.png"
+                                                            alt="logo" height="24"
+                                                            style="padding-right: 1rem;"></a>
+                                                    <a href="http://www.linkedin.com/company/ritearg"
+                                                        class="footer-map-link"><img
+                                                            src="http://127.0.0.1:8000/images/icon-linkedin.png"
+                                                            alt="logo" height="24"
+                                                            style="padding-right: 1rem;"></a>
+                                                    <a href="http://www.youtube.com/ritearg"
+                                                        class="footer-map-link"><img
+                                                            src="http://127.0.0.1:8000/images/youtube.svg" alt="logo"
+                                                            height="24"></a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <p><span class="footer-title" style="line-height: 3rem;">Mapa del sitio</span></p>
+                            <div class="row footer-map-heigth">
+                                <div class="col-md-12 col-xl-6">
+                                    <p><a href="/"
+                                            class="footer-map-link footer-map-link-margin-mobile">Inicio</a></p>
+                                    <p><a href="http://127.0.0.1:8000/about"
+                                            class="footer-map-link footer-map-link-margin-mobile">¿Qué es RITE?</a></p>
+                                    <p><a href="http://127.0.0.1:8000/herramientas"
+                                            class="footer-map-link footer-map-link-margin-mobile">Caja de
+                                            Herramientas</a></p>
+                                    <p><a href="http://127.0.0.1:8000/acceso"
+                                            class="footer-map-link footer-map-link-margin-mobile">Simulación</a></p>
+                                </div>
+
+                                <div class="col-md-12 col-xl-6">
+                                    <p><a href="http://127.0.0.1:8000/empresas"
+                                            class="footer-map-link footer-map-link-margin-mobile">Entidades
+                                            Registradas</a></p>
+                                    <p><a href="http://127.0.0.1:8000/acceso-empresas"
+                                            class="footer-map-link footer-map-link-margin-mobile">Acceso</a></p>
+                                    <p><a href="http://127.0.0.1:8000/novedades"
+                                            class="footer-map-link footer-map-link-margin-mobile">Novedades</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="derechos-reservados">
+            <p>Todos los derechos reservados. Presidencia de la Nación</p>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark home-nav-color home-nav-color-footer home-nav-footer-height">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo-oa">
+                                <img src="http://127.0.0.1:8000/images/logo-rite.svg" alt="logo"
+                                    class="logo-oa-img-margin" height="30">
+                            </div>
+                            <div class="logo-arg">
+                                <span class="home-text-rite">
+                                    <img src="http://127.0.0.1:8000/images/logo-oa.svg" alt="logo" height="30"
+                                        class="logo-arg-img-margin">
+                                </span>
+                            </div>
+                            <div class="logo-escudo">
+                                <span class="home-text-rite">
+                                    <img src="http://127.0.0.1:8000/images/logo-escudo-arg.svg" alt="logo"
+                                        height="30" class="logo-arg-img-margin">
+                                </span>
+                            </div>
+                            <div class="logo-arg-unida">
+                                <img src="http://127.0.0.1:8000/images/argentinaUnida.svg" alt="logo" height="27"
+                                    class="logo-arg-unida-img-margin">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="derechos-reservados">
+            <p>Versión: 1.3</p>
+        </div>
+
+    </section>
+    <script>
+        function llevarAContacto() {
+            document.getElementById("formName").focus();
+        }
+    </script>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "210px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+
+</html>

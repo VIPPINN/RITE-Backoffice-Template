@@ -1,0 +1,13 @@
+@font-face {
+  src: url('/../fonts/EncodeSans-Regular.ttf');
+  font-family: "Encode Sans";
+}
+@font-face {
+  src: url('/../fonts/EncodeSans-Light.ttf');
+  font-family: "Encode Sans light";
+}
+@font-face {
+  src: url('/../fonts/EncodeSans-Bold.ttf');
+  font-family: "Encode Sans Bold";
+}
+

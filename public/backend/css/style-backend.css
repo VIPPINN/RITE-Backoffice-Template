@@ -1,0 +1,35 @@
+
+.input-buscador {
+    position: absolute;
+    top: -55px;
+    right: 380px;
+    height: 38px;
+    width: 400px;
+}
+
+
+.input-buscador2 {
+    position: absolute;
+    top: -95px;
+    right: 380px;
+    height: 38px;
+    width: 400px;
+}
+
+.buscar-usuario{
+    position: absolute;
+    top: -55px;
+    right: 230px;
+    height: 38px;
+    border-radius: 5px;
+    background-color: rgb(13, 110, 253);
+    border: none;
+    color: white;
+    width: 150px;
+}
+
+.buscar-usuario:hover{
+    border: 1px solid rgb(13, 110, 253);
+    color: rgb(13, 110, 253);
+    background-color: white;
+}

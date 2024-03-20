@@ -1,0 +1,90 @@
+@extends('backend.app')
+
+@section('content')
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Agregar Registros</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="javascript:history.back()">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Agregar</li>
+    </ol>
+  </nav>
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Oops!</strong> Verifique los errores marcados.<br>
+    </div>
+  @endif
+    
+  @if ($message = Session::get('success'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ $message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+  @else 
+      <div>{{ $message }}</div>
+  @endif
+  <div class="row">
+    <form action="{{ URL::to('/backend/cuestionarios/guardarOpcionImpacta')}}" method="POST">
+      @csrf
+
+      <div class="container-noMargin-left container-Margin-top">
+        <div class="row">
+
+         
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="descripcion">Pregunta:</label>
+              {!!$Pregunta->pregunta!!}
+                <input type="hidden" name="idPregunta" value="{!!$Pregunta->id!!}">
+              @if ($errors->has('idPregunta'))
+                <small id="titleError" class="form-text text-danger">{{ $errors->first('idPregunta') }}</small>
+              @endif
+            </div>
+          </div>
+            
+          <div class="col-sm-4">  </div>
+
+        </div>
+      </div>
+      
+      <div class="container"><br/></div>
+      <div class="container-noMargin-left">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="descripcion">Opción Impacta</label>
+              <input type="text" class="form-control" name="respuestaImpacta" aria-describedby="titleError" placeholder="...">
+             {{--  <select name="respuestaImpacta"  class="form-control select-300">
+                  <option value="SI">SI</option>
+                  <option value="NO">NO</option>
+                  <option value="NO APLICA">NO APLICA</option>
+              </select> --}}
+              @if ($errors->has('descripcion'))
+                <small id="titleError" class="form-text text-danger">{{ $errors->first('descripcion') }}</small>
+              @endif
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="container"><br/></div>
+     
+      <div class="container"><br/></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+@endsection
