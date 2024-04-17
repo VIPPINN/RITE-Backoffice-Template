@@ -24,7 +24,7 @@ class ArchivoNombreCargadoService
 
     public function GenerarNombreYMiniaturaDeImagen($image, $modelo, $tabla, $campo, $id=0) : string
     {
-        $destinationPath = env('PATH_FILES')."/$modelo/";
+        $destinationPath = env('PATH_FILES')."/$modelo";
         $profileImage = md5(Carbon::now()->timestamp). "." . $image->getClientOriginalExtension();
         
         /** Redimensionar la imagen */
